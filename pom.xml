@@ -1,7 +1,152 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ssm</groupId>
-  <artifactId>ssmsuite</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>war</packaging>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.ssm</groupId>
+	<artifactId>ssmsuite</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>ssmsuite</name>
+	
+	<url>https://github.com/18019675002/ssmsuite.git</url>
+	<inceptionYear>2017</inceptionYear>
+	
+	<properties>
+		<spring.version>4.1.9.RELEASE</spring.version>
+		<validator.version>5.2.4.Final</validator.version>
+		
+		<!-- mybatis版本 -->
+		<mybatis.version>3.2.8</mybatis.version>
+		<mybatis-spring.version>1.2.3</mybatis-spring.version>
+		<!-- jdbc driver setting -->
+		<mysql.driver.version>5.1.30</mysql.driver.version>
+		<!-- durid数据库连接池版本 -->
+		<druid.version>1.0.18</druid.version>
+		
+		<!-- tools version setting -->
+		<junit.version>4.12</junit.version>
+		<slf4j.version>17.7</slf4j.version>
+		<log4j.version>1.2.17</log4j.version>
+		<commons-lang3.version>3.3.2</commons-lang3.version>
+		<commons-io.version>2.4</commons-io.version>
+		<commons-codec.version>1.9</commons-codec.version>
+		<commons-fileupload.version>1.3.1</commons-fileupload.version>
+		<commons-beanutils.version>1.9.1</commons-beanutils.version>
+		<jackson.version>2.2.3</jackson.version>
+		<fastjson.version>1.1.40</fastjson.version>
+		<xstream.version>1.4.7</xstream.version>
+		<guava.version>17.0</guava.version>
+		<dozer.version>5.5.1</dozer.version>
+		<poi.version>3.9</poi.version>
+		<freemarker.version>2.3.20</freemarker.version>
+		
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<downloadSources>true</downloadSources>
+		
+		<thymeleaf.version>3.0.2.RELEASE</thymeleaf.version>
+	</properties>
+	<!-- 设定主仓库，按设定顺序进行查找。 -->
+	<repositories>
+		<repository>
+			<id>jeesite-repos</id>
+			<name>Jeesite Repository</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</repository>
+	</repositories>
+	
+	<!-- 设定插件仓库 -->
+	<pluginRepositories> 
+		<pluginRepository>
+			<id>jeesite-repos</id>
+			<name>Jeesite Repository</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public</url>
+		</pluginRepository>
+	</pluginRepositories> 
+	
+	<dependencies>
+		<!-- spring begin -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- spring end -->
+		<!-- spring mvc begin -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- spring mvc end -->
+		<!-- web start -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- web end -->
+		
+	</dependencies>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </project>
