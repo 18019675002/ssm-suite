@@ -137,6 +137,19 @@
 		</dependency>
 		<!-- web end -->
 		
+		<!-- thymeleaf view start -->
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf</artifactId>
+			<version>${thymeleaf.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.thymeleaf</groupId>
+			<artifactId>thymeleaf-spring4</artifactId>
+			<version>${thymeleaf.version}</version>
+		</dependency>
+		<!-- thymeleaf view  -->
+		
 	</dependencies>
 	
 	

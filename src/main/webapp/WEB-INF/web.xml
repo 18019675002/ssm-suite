@@ -28,15 +28,21 @@
 	</servlet-mapping>
 	
 	<welcome-file-list>
-    	<welcome-file>index.jsp</welcome-file>
+    	<welcome-file>index2.jsp</welcome-file>
 	</welcome-file-list>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/WEB-INF/views/error/500.jsp</location>
+		<!-- jsp 视图的统一500 错误页面 -->
+		<!-- <location>/WEB-INF/views/error/500.jsp</location> -->
+		<!-- thymeleaf 视图的统一500 错误页面 -->
+		<location>/WEB-INF/classes/templates/error/500.html</location>
 	</error-page>
 	<error-page>
 		<error-code>404</error-code>
-		<location>/WEB-INF/views/error/404.jsp</location>
+		<!-- jsp 视图的统一404 错误页面 -->
+		<!-- <location>/WEB-INF/views/error/404.jsp</location> -->
+		<!-- thymeleaf 视图的统一404 错误页面 -->
+		<location>/WEB-INF/classes/templates/error/404.html</location>
 	</error-page>
 
 </web-app>
