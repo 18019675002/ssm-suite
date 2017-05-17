@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:context="http://www.springframework.org/schema/context"
+      xmlns:aop="http://www.springframework.org/schema/aop"
+      xmlns:tx="http://www.springframework.org/schema/tx"
+      xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    
+   http://www.springframework.org/schema/context 
+   http://www.springframework.org/schema/context/spring-context.xsd
+   http://www.springframework.org/schema/tx 
+   http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+   http://www.springframework.org/schema/aop 
+   http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+   http://www.springframework.org/schema/data/jpa 
+   http://www.springframework.org/schema/data/jpa/spring-jpa-4.0.xsd">
+   
+	<!-- <context:component-scan base-package="net.aazj.service,net.aazj.aop" />
+    <context:component-scan base-package="net.aazj.aop" /> -->
+    <!-- 引入属性文件 -->
+    <context:property-placeholder location="classpath:application.properties" />    
+    <!-- 配置数据源Master -->
+    <bean name="dataSourceMaster" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${spring.datasource.driver-class-name}"/> 
+        <property name="url" value="${spring.datasource.url}" />
+        <property name="username" value="${spring.datasource.username}" />
+        <property name="password" value="${spring.datasource.password}" />
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="${spring.datasource.initialSize}" />
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle" value="${spring.datasource.minIdle}" />
+        <!-- 连接池最大使用连接数量 -->
+        <property name="maxActive" value="${spring.datasource.maxActive}" />
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="${spring.datasource.maxWait}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${spring.datasource.timeBetweenEvictionRunsMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${spring.datasource.minEvictableIdleTimeMillis}" />
+        <property name="validationQuery" value="${spring.datasource.validationQuery}" />
+        <property name="testWhileIdle" value="${spring.datasource.testWhileIdle}" />
+        <property name="testOnBorrow" value="${spring.datasource.testOnBorrow}" />
+        <property name="testOnReturn" value="${spring.datasource.testOnReturn}" />
+        <property name="poolPreparedStatements" value="${spring.datasource.poolPreparedStatements}" />
+        <property name="filters" value="${spring.datasource.filters}" />
+    </bean>    
+    <!-- 配置数据源Slave -->
+    <bean name="dataSourceSlave" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+        <property name="driverClassName" value="${spring.datasource.driver-class-name}"/> 
+        <property name="url" value="${custom.datasource.ds1.url}" />
+        <property name="username" value="${custom.datasource.ds1.username}" />
+        <property name="password" value="${custom.datasource.ds1.password}" />
+        <!-- 初始化连接大小 -->
+        <property name="initialSize" value="${spring.datasource.initialSize}" />
+        <!-- 连接池最小空闲 -->
+        <property name="minIdle" value="${spring.datasource.minIdle}" />
+        <!-- 连接池最大使用连接数量 -->
+        <property name="maxActive" value="${spring.datasource.maxActive}" />
+        <!-- 获取连接最大等待时间 -->
+        <property name="maxWait" value="${spring.datasource.maxWait}" />
+        <property name="timeBetweenEvictionRunsMillis" value="${spring.datasource.timeBetweenEvictionRunsMillis}" />
+        <property name="minEvictableIdleTimeMillis" value="${spring.datasource.minEvictableIdleTimeMillis}" />
+        <property name="validationQuery" value="${spring.datasource.validationQuery}" />
+        <property name="testWhileIdle" value="${spring.datasource.testWhileIdle}" />
+        <property name="testOnBorrow" value="${spring.datasource.testOnBorrow}" />
+        <property name="testOnReturn" value="${spring.datasource.testOnReturn}" />
+        <property name="poolPreparedStatements" value="${spring.datasource.poolPreparedStatements}" />
+        <property name="filters" value="${spring.datasource.filters}" />
+    </bean>    
+    
+    <bean id="dataSource" class="com.ssm.config.DynamicDataSource">
+        <property name="defaultTargetDataSource" ref="dataSourceMaster" />
+        <property name="targetDataSources">
+            <map key-type="java.lang.String">
+                <entry key="dataSourceMaster" value-ref="dataSourceMaster"/>
+                <entry key="dataSourceSlave" value-ref="dataSourceSlave"/>
+                <!-- 这里还可以加多个dataSource -->
+            </map>
+        </property>
+    </bean>  
+    <bean id="dynamicDataSourceContextHolder" class="com.ssm.config.DynamicDataSourceContextHolder">
+        <property name="dataSourceIds">
+            <list>
+                <value>dataSourceSlave</value>
+            </list>
+        </property>
+    </bean>   
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+      <property name="dataSource" ref="dataSource" />
+      <property name="configLocation" value="classpath:spring-context-mybatis-config.xml" />
+      <property name="mapperLocations" value="classpath*:mapper/**/*.xml" />
+    </bean>    
+    <!-- Transaction manager for a single JDBC DataSource -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource" />
+    </bean>    
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="transactionManager" /> 
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+      <property name="basePackage" value="com.ssm.mapper" />
+      <!-- <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/> -->
+    </bean>
+      
+      
+      
+</beans>
