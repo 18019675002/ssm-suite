@@ -1,4 +1,4 @@
-package com.ssm.config;
+package com.ssm.config.dataSource;
 
 import java.util.HashMap;
 import java.util.Map;

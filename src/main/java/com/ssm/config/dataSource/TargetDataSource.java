@@ -1,4 +1,4 @@
-package com.ssm.config;
+package com.ssm.config.dataSource;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

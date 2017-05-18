@@ -1,8 +1,15 @@
-package com.ssm.config;
+package com.ssm.config.dataSource;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @ClassName: DynamicDataSourceContextHolder
+ * @Description: 保存每次操作线程的数据库名称
+ * @author Wangjie
+ * @date 创建时间：2017年5月18日 下午8:09:49
+ * @version 1.0
+ */
 public class DynamicDataSourceContextHolder {
 	private static final ThreadLocal<String> contextHolder = new ThreadLocal<String>();
 	/*
@@ -10,7 +17,6 @@ public class DynamicDataSourceContextHolder {
      * 主要是为了判断数据源是否存在;
      */
     public static  List<String> dataSourceIds = new ArrayList<String>();
-    
     
     public List<String> getDataSourceIds() {
 		return dataSourceIds;
@@ -37,7 +43,7 @@ public class DynamicDataSourceContextHolder {
      *
      * @param dataSourceId
      * @return	
-     * @author	
+     * @author	wj
      * @create	2017年5月15日
      */
     public static boolean containsDataSource(String dataSourceId){

@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ssm.config.TargetDataSource;
+import com.ssm.config.dataSource.TargetDataSource;
 import com.ssm.controllers.BaseApiController;
 import com.ssm.mapper.GoodsMapper;
 import com.ssm.mapper.MqGoodsMapper;

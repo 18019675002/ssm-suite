@@ -68,7 +68,8 @@
         <property name="filters" value="${spring.datasource.filters}" />
     </bean>    
     
-    <bean id="dataSource" class="com.ssm.config.DynamicDataSource">
+    <!-- 配置动态数据源 -->
+    <bean id="dataSource" class="com.ssm.config.dataSource.DynamicDataSource">
         <property name="defaultTargetDataSource" ref="dataSourceMaster" />
         <property name="targetDataSources">
             <map key-type="java.lang.String">
@@ -78,7 +79,8 @@
             </map>
         </property>
     </bean>  
-    <bean id="dynamicDataSourceContextHolder" class="com.ssm.config.DynamicDataSourceContextHolder">
+    <!-- 存放数据源名称 -->
+    <bean id="dynamicDataSourceContextHolder" class="com.ssm.config.dataSource.DynamicDataSourceContextHolder">
         <property name="dataSourceIds">
             <list>
                 <value>dataSourceSlave</value>
