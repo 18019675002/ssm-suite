@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssm.mapper.MqGoodsMapper">
+<mapper namespace="com.shark.ssm.models.home.mapper.MqGoodsMapper">
 
 	
 	<!-- 查询商品信息时判断商品是否存在 -->
-	<select id="findGoodsByUniacid" resultType="com.ssm.model.MqGoodsDetail">
+	<select id="findGoodsByUniacid" resultType="home.MqGoodsDetail">
 		SELECT
 			id,
 			uniacid,

@@ -17,7 +17,7 @@
     <context:property-placeholder ignore-unresolvable="true" location="classpath:application.properties" />
     
     <!-- 使用Annotation自动注册Bean,只扫描@Controller -->
-	<context:component-scan base-package="com.ssm" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
+	<context:component-scan base-package="com.shark.ssm" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
 	
@@ -73,5 +73,21 @@
 	
 	<!-- 静态资源映射 -->
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
+    
+    <!-- 注册拦截器 -->
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/><!--映射路径 -->
+			<bean class="com.shark.ssm.interceptor.SystemInfoInterceptor"/>
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/><!--映射路径 -->
+			<bean class="com.shark.ssm.models.sys.interceptor.LoginInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors> 
+    
+    
+    
+    
     
 </beans>

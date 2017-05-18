@@ -5,13 +5,12 @@
 <title>zoo list</title>  
 </head>  
 <body> 
-	<h1 th:include="home/commons/template::welcome"></h1> 
-	<ul>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
-    <div id="animal" th:include="home/commons/animalsTable::animalsTable" ></div>  
+	<h1>后台管理系统登录</h1> 
+	<form action="">
+		<input type="text" name="loginname" placeholder="用户名"/>
+		<input type="text" name="password" placeholder="密码"/>
+		<input type="submit" name="commit" value="提交" />
+	</form> 
 	<div>
 		<span>系统名称：</span>
 		<span th:text = ${systemName}></span>

@@ -31,4 +31,11 @@
 		
 		<setting name="logImpl" value="STDOUT_LOGGING"/>
 	</settings>
+	
+	
+	<typeAliases>
+		<typeAlias type="com.shark.ssm.models.home.entity.GoodsDetail" alias="home.GoodsDetail"/>
+		<typeAlias type="com.shark.ssm.models.home.entity.MqGoodsDetail" alias="home.MqGoodsDetail"/>
+	</typeAliases>
+	
 </configuration>
