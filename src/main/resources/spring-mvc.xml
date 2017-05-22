@@ -77,15 +77,14 @@
     <!-- 注册拦截器 -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/**"/><!--映射路径 -->
-			<bean class="com.shark.ssm.interceptor.SystemInfoInterceptor"/>
-		</mvc:interceptor>
-		<mvc:interceptor>
-			<mvc:mapping path="/**"/><!--映射路径 -->
+			<mvc:mapping path="/**"/><!-- 映射路径 -->
 			<bean class="com.shark.ssm.models.sys.interceptor.LoginInterceptor"/>
 		</mvc:interceptor>
-	</mvc:interceptors> 
-    
+		<mvc:interceptor>
+			<mvc:mapping path="/**/loginPage"/>
+			<bean class="com.shark.ssm.models.sys.interceptor.SystemInfoInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
     
     
     

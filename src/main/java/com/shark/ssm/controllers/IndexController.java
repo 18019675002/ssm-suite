@@ -19,10 +19,10 @@ public class IndexController {
 	
 	@RequestMapping("/")
 	public String page(HttpServletRequest req, HttpServletResponse res, ModelMap model){
-		Object info = req.getAttribute("systemInterceptorInfo").toString();
+		//Object info = req.getAttribute("systemInterceptorInfo").toString();
 		String systemInterceptorInfo = "";
-		if(info!=null)
-		systemInterceptorInfo = info.toString(); 
+		//if(info!=null)
+		//systemInterceptorInfo = info.toString(); 
 		System.out.println(systemInterceptorInfo);
 		return "index";
 	}

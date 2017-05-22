@@ -23,10 +23,11 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println("LoginInterceptor    preHandle");
 		String path = request.getServletPath();
-		System.out.println(path);
+		System.out.println("path = " + path);
 		String url = request.getRequestURI();
-		System.out.println(url);
+		System.out.println("url = " + url);
 		if(path.matches(Const.NO_LOGIN_INTERCEPTOR_PATH)){
 			return true;
 		}
@@ -34,7 +35,7 @@ public class LoginInterceptor implements HandlerInterceptor {
 //			User sysUser = (User) session.getAttribute(Const.SESSION_USER); 
 		
 		//不符合条件的，跳转到登录界面  
-        request.getRequestDispatcher("/WEB-INF/classes/templates/sys/login.html").forward(request, response);
+        //request.getRequestDispatcher("/WEB-INF/classes/templates/sys/login.html").forward(request, response);
         
 		return false;
 	}
@@ -43,14 +44,14 @@ public class LoginInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// TODO Auto-generated method stub
-
+		System.out.println("LoginInterceptor    postHandle");
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		// TODO Auto-generated method stub
-
+		System.out.println("LoginInterceptor    afterCompletion");
 	}
 
 }

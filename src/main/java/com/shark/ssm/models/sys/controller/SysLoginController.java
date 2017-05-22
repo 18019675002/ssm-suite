@@ -6,16 +6,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 /** 
  * @Description: TODO
  * @author Wangjie
- * @date 创建时间：2017年5月18日 下午11:55:38
+ * @date 创建时间：2017年5月22日 下午11:12:14
  * @version 1.0
  * @since  
  */
 @Controller
-@RequestMapping(value="/system")
-public class LoginController {
-
-	@RequestMapping(name="/loginPage")
+@RequestMapping("/system/login")
+public class SysLoginController {
+	
+	@RequestMapping("/loginPage")
 	public String loginPage(){
+		System.out.println("test1  ----  test11");
 		return "sys/login";
 	}
+	
 }
