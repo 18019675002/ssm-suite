@@ -1,4 +1,4 @@
-package com.shark.ssm.test;
+package com.shark.ssm.test.logback;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,12 +7,12 @@ import org.slf4j.LoggerFactory;
 /** 
  * @Description: TODO
  * @author Wangjie
- * @date 创建时间：2017年5月23日 下午10:40:22
+ * @date 创建时间：2017年5月25日 上午12:01:48
  * @version 1.0
  * @since  
  */
-public class LogbackTest {
-	private static Logger log = LoggerFactory.getLogger(LogbackTest.class); 
+public class LogbackDemo {
+	private static Logger log = LoggerFactory.getLogger(LogbackDemo.class); 
 	public static void main(String[] args) {
 		log.trace("======== trace 所有");
 		log.debug("======== debug 调试");
@@ -21,3 +21,4 @@ public class LogbackTest {
 		log.error("======== error 错误");
 	}
 }
+
